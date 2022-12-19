@@ -13,7 +13,7 @@ class OffreController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
+    {
         $offres = Offre::paginate(20);
 
         return view('offre.index', compact('offres'));
@@ -108,18 +108,5 @@ class OffreController extends Controller
     public function destroy(Offre $offre)
     {
         //
-    }
-
-    public function search(Request $request)
-    {
-        $words = $request->words;
-
-        $offres= Offre::get()
-        ->where('title', 'LIKE', "%$words%")
-        ->orWhere('description', 'LIKE', "%$words%")
-        ->orderBy('created_at', 'desc')
-        ->get();
-
-        return response()->json(['success' => true, 'offres' => $offres]);
     }
 }

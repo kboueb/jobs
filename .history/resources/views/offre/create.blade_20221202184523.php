@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="container">
+        @if (Auth())
         <div class="offre-card" style="width: 800px; margin: 0 auto;">
             <form action="{{ route('offre.store')}}" method="POST" class="row">
                 @csrf
@@ -59,5 +60,6 @@
                 </div>
             </form>
         </div>
+        @endif
     </div>
 @endsection

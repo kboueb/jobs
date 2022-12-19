@@ -99,9 +99,8 @@
         </main>
     </div>
 
-    @section('scripts')
-        <script src="{{ asset("js/perso.js") }}"></script>
-    @endsection
+    @yield('scripts')  
+    @include('js.perso')
     @notifyJs
     <x:notify-messages />
 </body>
