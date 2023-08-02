@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\OffreController;
+use App\Http\Controllers\FrontEndController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,8 +23,10 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('/', [App\Http\Controllers\FrontEndController::class, 'index'])->name('home-front');
+
 //routes offres 
-Route::get('/', [OffreController::class, 'index'])->name('offre.index');
+Route::get('/les-offres', [OffreController::class, 'index'])->name('offre.index');
 Route::get('/offre/{id}', [OffreController::class, 'show'])->name('offre.show');
 
 Route::get('/nouvelle-offre', [OffreController::class, 'create'])->name('offre.create');
